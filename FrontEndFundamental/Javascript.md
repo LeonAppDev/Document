@@ -1,11 +1,8 @@
-#HTML, Javascript, CSS 基础
-
-##Javascipt
-###Javascript DOM object and functions
+#Javascript DOM object and functions
 *window
 I think it respensents browser window.
 it has addEventListener and setTimeout method
- * document
+ *document
 document map the whole html page including head and body tag
 it has getElementById and createElement method
   *element

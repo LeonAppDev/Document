@@ -1,3 +1,3 @@
 #Website Responsive
 ##Bootrap
-*Bootrap'd main idea is using CSS and set different class to tag according to css @media attribute 
+*Bootrap's main idea is using CSS and set different class to tag according to CSS @media attribute 
