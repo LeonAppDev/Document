@@ -8,15 +8,16 @@
    <table>
      <tr><td>1</td><td>some text</td><tr>
    </table>
-   ```html
-
+   ```
    is better than
-
    ```html
    <ul>
      <li>
        <span>1<span>some text
      </li>
    </ul>
-   ```html
-   
+   ```
+   3. <i> tag
+   <i> mean text enclosed in will use italic style. It is similiar with <em>, <strong>, <mark>, <cite> and <dfn> which could respresent different style of text.
+   4. inline element and block element
+   inline tag will not change any position of element inside it whole block element wrap other element

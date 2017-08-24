@@ -12,3 +12,14 @@
  3. Bootstrap use Vanillia and Jquery as base technology
   When creating some dynamic effect, such as responsive menu, we need to use bootstrap.min.js, and its dependency is Jquery.
   For ableowl.net as example, when it is full screen, it use a nav list to show all the menu item, and when it goes to mobile, it use a button, and add or remove some attribute to implement responsive
+
+  4. align and vertical-align
+  vertical-align adjust vertical position of element inside
+
+## Aria
+   Mean Accessible rich internet application, which could be used to make web content more accessible to people with disabilities.
+   1. attribute
+   all begin with aria, link with -.
+
+   2. attribute list
+   for example, aria-hidden, Indicates that the element and all of its descendants are not visible or perceivable to any user as implemented by the author. Must notice invisible and not perceivable are two different meanings.
