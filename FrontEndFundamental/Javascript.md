@@ -69,7 +69,14 @@ You could see original Javascript use PascalCase to define object(any variable s
       Define in Object.prototype, could use this
       * bind
       similiar with call and apply, usually used to bind a
-
+      * Arrow function
+      ()=>{statement}
+      parameter =>{statement}
+      (parameter,parameter2)=>{statement}
+      (parameter=defaultValue,parameter2)=>{statement}
+      ()=>statement // = ()=>{return statement}
+      ()->({test:'test'})
+      on the left,there are five different types and on the right there are three different types.
      Use Prototype to define static function
   5. array
      * Regular operation for array
@@ -77,8 +84,6 @@ You could see original Javascript use PascalCase to define object(any variable s
        let arraySample=[];//initialize an empty arraySample
        let arrayFruits = ['apple','banana']; //initialize a array with some fruits
        console.log(arrayFruits.length); //get length of an array
-
-
 
        ```
   6. How to implement OOP in javascript
@@ -90,7 +95,6 @@ You could see original Javascript use PascalCase to define object(any variable s
      * abstract
      * inherence
      * encapsulation
-     *
 
   7. Javascript scope
      * The most important skill we need to take into consideration is scope of a function. Whether it is global and whether it is local.
