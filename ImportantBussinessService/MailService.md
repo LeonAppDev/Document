@@ -32,7 +32,7 @@ DMARC policies are published in the DNS as text resource records and announce wh
 DKIM stands for DomainKeys identifier mail which was designed to help ISPs prevent malicious email senders by validating email from specific DomainKeys   
 
 * All you need to know about whitelabeling
-When you send an email
+When you send an email by 3rd party SMTP server, it usually use its own domain. Eg. when you send you email by sendgrid, if not configuring sendgrid, usually it shows via sendgrid.me
 
 * Improve email delivery
 [Email delivery best practices](https://sendgrid.com/resource/email-deliverability/?mc=email&mcd=GSFreeearly&utm_medium=email&utm_source=nurture&cvosrc=email.nurture.GSFreeearly&utm_campaign=GSFreeearly&mkt_tok=eyJpIjoiWVRRelpEa3lOakJrWVRBMSIsInQiOiJpSWpXWGQwTDNDTlI1Z001QlBLcDl1b2hqRENobldveTFOZlZrOHB6MlViNzBIbjFGY0sweDdROHBDT2c0ajBRSU9qd3o1eDEyR2FzS29udTVtVGNpcklOeVMzVExURkZGaGVicEtaV1g1clc4dVpqOWs2M1V2RzVxd3ZUSnJ5SyJ9#reputation)
