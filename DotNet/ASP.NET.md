@@ -13,6 +13,9 @@
     * identity
       Namespace is Microsoft.AspNet.Identity
       1. IRole
+
+      2. How to use Identity
+       There are four actions in Identity, Regrister, Login, Loginout
 ## Investigate larkyo webapi
    1. Microsoft.AspNet.Identity
 ## Investigate eShopOnContainer
@@ -34,4 +37,7 @@
       5. DbMigrationConfiguration
          Inherit from this class, this class has a seed virtual method(seed) you could override and create test data etc..
       6. lazy loading
-         Lazy loading is a concept where we delay the loading of the object until the point where we need it. 
+         Lazy loading is a concept where we delay the loading of the object until the point where we need it.
+
+## Attribute in C#
+   Attribute is an associate declarative information with c# code(types, method and properties etc.), it is similiar with adding a static member to a class, this is associated with a class or its member method, properties etc. We could also declare custome information by ourselves. 
