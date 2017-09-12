@@ -3,6 +3,7 @@
 
 I think it respensents browser window.
    - it has addEventListener and setTimeout method
+   - In HTML5, window.history API is added and we could use javascript to manipulate URL in the browser. 
 
 ## document
 
