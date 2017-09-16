@@ -9,4 +9,6 @@
     * Application User service and User service all manipulate ApplicationUser, what is the difference? ApplicationUserService is used to create user, create user profile
     * If I want to add a team, how should I do TeamDbContext
     * Why do we need to set all the property to virtual in LarkyoCore class. I think virtual is used for lazy loading, but lazy loading only needed for reference type. not    value type. value type in the class is also set as virtual
-    * Why application user and UserProfile declare themselves
+    * Why application user and UserProfile decalre themselves
+    * How to initialize the controller
+    * Why do we need to define a IdentityDbContext seperately
