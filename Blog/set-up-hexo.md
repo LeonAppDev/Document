@@ -12,6 +12,7 @@ Pros
 2. Light Weight
 3. Easy deploy on Github and Heroko which are free server
 4. Fast to visit
+
 CONS
 1. Need more programming skills
 2. Need Node.js and Git knowledge
@@ -52,13 +53,13 @@ deploy:
   message: [message]
 ```
 Option    | Description
-------    | -----------
-'repo'    | GitHub/Bitbucket/Coding/GitLab repository URL
-'branch'  | Branch name. The deployer will detect the branch automatically if you are using GitHub or GitCafe.
+------    | ---------------------------------------------------------------------------------------------------
+repo      | GitHub/Bitbucket/Coding/GitLab repository URL
+branch    | Branch name. The deployer will detect the branch automatically if you are using GitHub or GitCafe
 message   | Customize commit message (Default to Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})
 
 
->Notice {{ now('YYYY-MM-DD HH:mm:ss') }} when you write it in \_config.yml, should add quotation marks like "{{ now('YYYY-MM-DD >HH:mm:ss') }}" otherwise a error will be invoked
+>Notice {{ now('YYYY-MM-DD HH:mm:ss') }} when you write it in \_config.yml, should add quotation marks like "{{ now('YYYY-MM-DD HH:mm:ss') }}" otherwise a error will be invoked
 
 #### Install [hexo-deployer-git.](https://github.com/hexojs/hexo-deployer-git)
 ```bash
