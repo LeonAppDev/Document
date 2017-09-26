@@ -3,7 +3,7 @@
 
 I think it respensents browser window.
    - it has addEventListener and setTimeout method
-   - In HTML5, window.history API is added and we could use javascript to manipulate URL in the browser. 
+   - In HTML5, window.history API is added and we could use javascript to manipulate URL in the browser.
 
 ## document
 
@@ -51,6 +51,7 @@ You could see original Javascript use PascalCase to define object(any variable s
   var test2 = is('Math',1.232323);
   var teset3 = is('String',new String('test'));
   ```
+  Now I have a issue, when I call Object.prototype.toString() inside a function, it will only return object, but if I use it as toString.call(obj), it will return the right type, 
 
  2. Null and Undefined
 
