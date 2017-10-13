@@ -110,3 +110,21 @@ const config= {
 module.exports = config
 
 ```  
+
+
+## webpack project Structure
+
+### React project
+The basic and simplest structure includes below parts
+1. package.json
+project information, define how to run this project and depedency of the whole project.
+2. .babelrc
+Transpile resource, contains transpiler information
+3. webpack.config.js
+ This file should be written with standard javascript, webpack read this and determine whether to use transpile
+
+
+
+### Tips when developing
+1. Port issue when initializing webpack-dev-server
+   When you assign a port to dev server, webpack-dev-server will behave differently in different versions. In some version it will report range error when port is null, in some version it will report range error when port is undefined, process.env.port is undefined in some development environment so if you assign it in a configuration file, it is better to assign a default value such as 8080 with it.
