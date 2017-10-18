@@ -24,3 +24,6 @@ Keeping track of action string constants in your actions creators and reducers c
 
 ### ES6 semantic
  * Please be aware of name import and default import, sometimes this fault will lead to a quite deep defect. I once name import a constant string without {},then my action could never
+
+### React Route
+ When use <a> or windown.open in React, it always jump to mydomain/uri, so in react component, need to find a way to redirect another domain.
