@@ -28,10 +28,22 @@ console.log('Start printer');
 function Subject(){
 
     this.eventHandlers = [];
+    this.subscribe = execute=>{
+      this.eventHandlers.push(execute);
 
-}
+    }
 
-?/*Subject.prototype.add(object)
+    this.notify = ()=>{
+      for(func in this.eventHandlers)
+      {
+        //func();
+      }
+    }
+
+    }
+
+
+/*Subject.prototype.add(object)
 {
   if(object)
   {
@@ -68,21 +80,9 @@ function Observer()
 subject1 = new ConcreteSubject();
 subject2 = new ConcreteSubject();
 */
-Subject.prototype.subscribe(execute)
-{
-    this.eventHandlers.push(execute);
-}
 
-Subject.prototype.notify()
-{
 
-  foreach(func in this.eventHandlers)
-  {
-    func();
-  }
-}
-
-subTest1 = new Subject();
+var subTest1 = new Subject();
 function print1()
 {
   console.log('test1');
@@ -96,4 +96,4 @@ subTest1.subscribe(print2);
 
 subTest1.notify();
 
-cosole.log('Test End');
+console.log('Test End');
