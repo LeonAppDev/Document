@@ -2,6 +2,8 @@
 ## User class
   It defines several kinds of different users. There is something behind the theme, since user should be used in identity and should also be considered a palyer in the app
   Respoonsities and service is the general database operation mapping to method.
+
+## User
 ## Questions
 　　* Why writing logic mapping AspNetUsers twice, one in OnModelCreate using DbModelBuilder and the other one in ApplicationUserMapping derived from EntityTypeConfiguration  and use in DbModelBuilder.Configurations.Add
 

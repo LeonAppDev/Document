@@ -51,7 +51,7 @@ You could see original Javascript use PascalCase to define object(any variable s
   var test2 = is('Math',1.232323);
   var teset3 = is('String',new String('test'));
   ```
-  Now I have a issue, when I call Object.prototype.toString() inside a function, it will only return object, but if I use it as toString.call(obj), it will return the right type, 
+  Now I have a issue, when I call Object.prototype.toString() inside a function, it will only return object, but if I use it as toString.call(obj), it will return the right type,
 
  2. Null and Undefined
 
@@ -101,3 +101,8 @@ You could see original Javascript use PascalCase to define object(any variable s
   7. Javascript scope
      * The most important skill we need to take into consideration is scope of a function. Whether it is global and whether it is local.
      * this keyword
+       There's something here we haven't seen before: the this keyword. Used inside a function, this refers to the current object. What that actually means is specified by the way in which you called that function. If you called it using dot notation or bracket notation on an object, that object becomes this. If dot notation wasn't used for the call, this refers to the global object. When I do the test, I find out when call the function without dot notation, this will refer to upper second function scope. So say Global object is not so accurate, since what is global object?
+     * new
+       use new with this keyword could create a class and it instance
+     * prototype
+       prototype is a shared object, and could utilize this keyword to operate variable in a class
