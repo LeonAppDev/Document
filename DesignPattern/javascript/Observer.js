@@ -34,13 +34,19 @@ function Subject(){
     }
 
     this.notify = ()=>{
-      for(func in this.eventHandlers)
+      var count = this.eventHandlers.length;
+      for(let i=0;i<count;i++)
       {
-        //func();
+        this.eventHandlers[i].call(this);
+
+      //  func.call(this);
+
+
       }
-    }
 
     }
+
+}
 
 
 /*Subject.prototype.add(object)
@@ -83,11 +89,11 @@ subject2 = new ConcreteSubject();
 
 
 var subTest1 = new Subject();
-function print1()
+var print1 = function ()
 {
   console.log('test1');
 }
-function print2()
+var print2 = function ()
 {
    console.log('test2');
 }
