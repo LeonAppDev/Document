@@ -37,9 +37,9 @@ function Subject(){
       var count = this.eventHandlers.length;
       for(let i=0;i<count;i++)
       {
-        this.eventHandlers[i].call(this);
+        this.eventHandlers[i].call(this,'pushup');
 
-      //  func.call(this);
+        //  func.call(this);
 
 
       }
@@ -89,13 +89,13 @@ subject2 = new ConcreteSubject();
 
 
 var subTest1 = new Subject();
-var print1 = function ()
+var print1 = function (value)
 {
-  console.log('test1');
+  console.log('test1'+value);
 }
-var print2 = function ()
+var print2 = function (value)
 {
-   console.log('test2');
+   console.log('test2'+value);
 }
 subTest1.subscribe(print1);
 subTest1.subscribe(print2);
