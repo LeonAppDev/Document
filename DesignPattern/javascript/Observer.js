@@ -38,6 +38,7 @@ function Subject(){
       for(let i=0;i<count;i++)
       {
         this.eventHandlers[i].call(this,'pushup','pushup2');
+        this.eventHandlers[i].call(this,'push','');
         this.eventHandlers[i].apply(this,['pushup','pushup2']);
         //  func.call(this);
 
