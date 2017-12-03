@@ -6,3 +6,4 @@
   1. Visual Studio(Community version at least)
   2. Xamarin.ios
   For now mobile development has already been a component of Visual Studio 2017, so for new installation, just select mobile development with .NET selection. If already installed, run installation program again and choose modify, select module mentioned above if not installed.
+  The minimun requirement for running live player need Visual Studio 2017 15.4 or newer version and an ios or android device installing Xamarin live player. I will suggest ios device if developing ios app. 
