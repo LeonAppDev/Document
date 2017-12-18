@@ -104,3 +104,7 @@ Now when visiting the domain it will show 'Hell World!'
 ```
  $ pm2 start app.js
  ```
+
+# Nodejs configure in windows
+## NodeJS version used
+   If you meet an issue in windows when failing run a project in windows, you should use npm start to run it. Since this command will print debug information, I once use nodist to manage node version. The tricky trap is you use nodsit, it shows you use the latest version of node but actually it uses old version, in windows. So the best way to upgrade node is to use Installation file for windows.
