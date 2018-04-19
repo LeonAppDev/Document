@@ -29,4 +29,14 @@
          To locate a component first take a look at plugin or theme folder which has relation with this component, if could not find out, then use find in project to find class name, could try several different layers of class since sometimes class name is not hard coded
        8. Custome product type
        9. Multi-Language
-          esc_html__() is a function wordpress use to make translate easier and more efficient, it accepts a default string which will output when no translatation found and a domain in which you could create a translation for all words print with esc_html__() 
+          esc_html__() is a function wordpress use to make translate easier and more efficient, it accepts a default string which will output when no translatation found and a domain in which you could create a translation for all words print with esc_html__()
+      10. How to add a custom data tab and panel and add the data to the sysyem
+           [Add custome data tab in WooCommerce product](https://www.proy.info/woocommerce-admin-custom-product-data-tab/)
+## Add optional data to product
+
+For Now I plan to add a optional data to product page, need to allow customer add customer data on the background and rearrange layout on he front end
+Here I use some plugins and article as a Reference
+https://wordpress.org/plugins/search-by-sku-for-woocommerce/
+https://dsgnwrks.pro/snippets/woocommerce-allow-adding-multiple-products-to-the-cart-via-the-add-to-cart-query-string/
+ Woo Product Bundles
+and Advanced Woo Search
