@@ -201,3 +201,6 @@ Create a Administrator account and input MongoDB connection parameter as request
 
 
 Then you could use above command to start nodebb development
+
+
+6. step

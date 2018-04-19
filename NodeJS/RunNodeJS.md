@@ -1,5 +1,6 @@
 ## Run NodeJS on Ubuntu 16.04 Nginx server
 
+Server is located in google cloud for now.
 1. Install NodeJS
 
 Installation of an LTS version of Node.js is recommended to avoid unexpected breaking changes in the future as part of system updates. To start, add the nodesource

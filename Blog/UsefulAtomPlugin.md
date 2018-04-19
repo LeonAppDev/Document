@@ -1,0 +1,20 @@
+# general
+1. minimap
+2. goto-definition
+3. todo-show
+4. linter
+  * linter-alex
+  * linter-csslint
+  * linter-jscs
+  * linter-php
+  * linter-phpcs
+  * linter-write-good
+  * minimap-linter
+5. atom-beautify
+6. project-manager
+# CSS
+1. pigments
+2. color-picker
+
+# PHP
+1. PHP-DEBUG

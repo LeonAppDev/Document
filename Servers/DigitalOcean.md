@@ -10,3 +10,7 @@
  * SSL
  * PM2
  * vsftp
+
+## Domain name
+* leon-ren.com
+* algotithm.leon-ren.com
