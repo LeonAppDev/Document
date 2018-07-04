@@ -120,9 +120,65 @@ function testNull()
 }
 
 
-(function()
+function execSeq(val1)
 {
 
+    console.log(val1);
+
+    return (val2)=>{console.log(val2)};
+
+}
+
+function thisTest()
+{
+
+  var arguments = [1,2,3];
+  var arr = ()=>arguments[0];
+
+  console.log(arr());
+
+
+  function foo(n)
+  {
+        var f = (a)=>arguments[0]+n
+
+        return f(41);
+
+  }
+
+  console.log(foo(2));
+
+  function foo2(n)
+  {
+         var f = (...args)=>args[0]+n
+
+         return f;
+
+  }
+
+
+
+  console.log(foo2(2)(1234));
+
+}
+
+
+
+
+var assignFunctionTest = function()
+{
+   var err=console.log;
+   return this;
+
+}; // Remember ; here is important since this is a assignment statement, javascript interpreter could not correctly figure out two different lines without ";" 
+// if next line begins with a parenthese
+
+//
+//var assignFunctionTest = assignFunctionTest;
+
+
+(function()
+{
 
 //regTest();
 /*var g = generatorTest();
@@ -147,5 +203,15 @@ s.repeat(13);*/
 //regIgnoreCase();
 
 //objectTest();
-testNull();
+//testNull();
+
+//ecSeq("I am val1")("I am val2");
+
+//isTest();
+//var a = assignFunctionTest();
+//console.log(a===this);
+var a = assignFunctionTest();
+
+console.log(a===this);
+
 })()
