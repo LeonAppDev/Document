@@ -1,0 +1,27 @@
+{
+  "name": "js-design",
+  "version": "1.0.0",
+  "description": "design patern project",
+  "main": "DesignPattern.js",
+  "repository": "",
+  "author": "Leon",
+  "license": "MIT",
+  "ava": {
+    "require": [
+      "babel-register",
+      "babel-polyfill",
+      "isomorphic-fetch",
+      "./config/ava_setup.js"
+    ],
+    "babel": {
+      "babelrc": true
+    }
+  },
+  "devDependencies": {
+    "ava":
+
+  },
+  "dependencies": {
+
+  }
+}
