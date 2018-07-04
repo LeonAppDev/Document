@@ -203,4 +203,112 @@ Create a Administrator account and input MongoDB connection parameter as request
 Then you could use above command to start nodebb development
 
 
+<<<<<<< HEAD
 6. step
+=======
+6. Step to recover a NodeBB local setup when re-install Windows
+
+First I think this means the same thing when you need to migrate your nodebb and recover it from another server.
+
+So what you need is the backup of your lastest backup of your nodebb and mongodb files.
+
+I use nodebb backup on my portable disk but get below message
+
+```
+NodeBB v1.6.1 Copyright (C) 2013-2014 NodeBB Inc.
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it under certain conditions.
+For the full license, please visit: http://www.gnu.org/copyleft/gpl.html
+
+Clustering enabled: Spinning up 1 process(es).
+
+19/4 16:52:27 [90516] - verbose: * using configuration stored in: D:\backup\personalfiles\Development\AtomProject\NodeBB\config.json
+19/4 16:52:28 [90516] - info: Initializing NodeBB v1.6.1 http://localhost:4567
+19/4 16:52:28 [90516] - verbose: * using mongo store at 127.0.0.1:27017
+19/4 16:52:28 [90516] - verbose: * using themes stored in: D:\backup\personalfiles\Development\AtomProject\NodeBB\node_modules
+19/4 16:52:31 [90516] - error: NodeBB could not connect to your Mongo database. Mongo returned the following error: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+19/4 16:52:31 [90516] - error:  MongoError: failed to connect to server [127.0.0.1:27017] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (D:\backup\personalfiles\Development\AtomProject\NodeBB\node_modules\mongodb-core\lib\topologies\server.js:336:35)
+    at emitOne (events.js:96:13)
+    at Pool.emit (events.js:188:7)
+    at Connection.<anonymous> (D:\backup\personalfiles\Development\AtomProject\NodeBB\node_modules\mongodb-core\lib\connection\pool.js:280:12)
+    at Connection.g (events.js:292:16)
+    at emitTwo (events.js:106:13)
+    at Connection.emit (events.js:191:7)
+    at Socket.<anonymous> (D:\backup\personalfiles\Development\AtomProject\NodeBB\node_modules\mongodb-core\lib\connection\connection.js:187:49)
+    at Socket.g (events.js:292:16)
+    at emitOne (events.js:96:13)
+[cluster] Child Process (90516) has exited (code: 0, signal: null)
+```
+
+I think it means I need to install mongodb and recover the database.
+
+So I re-do mongodb and python installaion process.
+
+After installation of MongoDB, I set the db path for it to backup database route using below command
+```
+& 'C:\Program Files\MongoDB\Server\3.6\bin\mon
+god.exe' --dbpath D:\backup\personalfiles\Development\AtomProject\MongoDBFile\NodeBBDev\
+
+```
+And it prints below message
+
+>2018-04-19T14:49:52.681-0800 I CONTROL  [initandlisten] MongoDB starting : pid=13416 port=27017 dbpath=D:\backup\personalfiles\Development\AtomProject\MongoDBFile\NodeBBDev\ 64-bit host=Leon-Ren-Dell
+2018-04-19T14:49:52.682-0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2018-04-19T14:49:52.683-0800 I CONTROL  [initandlisten] db version v3.6.4
+2018-04-19T14:49:52.687-0800 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2018-04-19T14:49:52.687-0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o-fips  27 Mar 2018
+2018-04-19T14:49:52.688-0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-04-19T14:49:52.688-0800 I CONTROL  [initandlisten] modules: none
+2018-04-19T14:49:52.689-0800 I CONTROL  [initandlisten] build environment:
+2018-04-19T14:49:52.690-0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2018-04-19T14:49:52.691-0800 I CONTROL  [initandlisten]     distarch: x86_64
+2018-04-19T14:49:52.693-0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-04-19T14:49:52.693-0800 I CONTROL  [initandlisten] options: { storage: { dbPath: "D:\backup\personalfiles\Development\AtomProject\MongoDBFile\NodeBBDev\" } }
+2018-04-19T14:49:53.015-0800 W -        [initandlisten] Detected unclean shutdown - D:\backup\personalfiles\Development\AtomProject\MongoDBFile\NodeBBDev\mongod.lock is not empty.
+2018-04-19T14:49:53.036-0800 I -        [initandlisten] Detected data files in D:\backup\personalfiles\Development\AtomProject\MongoDBFile\NodeBBDev\ created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-04-19T14:49:53.038-0800 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2018-04-19T14:49:53.039-0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3525M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-04-19T14:49:53.496-0800 I STORAGE  [initandlisten] WiredTiger message [1524178193:496014][13416:140719501500752], txn-recover: Main recovery loop: starting at 46/3200
+2018-04-19T14:49:53.503-0800 I STORAGE  [initandlisten] WiredTiger message [1524178193:503082][13416:140719501500752], txn-recover: Recovering log 46 through 47
+2018-04-19T14:49:53.620-0800 I STORAGE  [initandlisten] WiredTiger message [1524178193:619069][13416:140719501500752], txn-recover: Recovering log 47 through 47
+2018-04-19T14:49:53.863-0800 I STORAGE  [initandlisten] WiredTiger message [1524178193:863283][13416:140719501500752], txn-recover: Set global recovery timestamp: 0
+2018-04-19T14:49:54.498-0800 I CONTROL  [initandlisten]
+2018-04-19T14:49:54.498-0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-04-19T14:49:54.500-0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-04-19T14:49:54.504-0800 I CONTROL  [initandlisten]
+2018-04-19T14:49:54.505-0800 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-04-19T14:49:54.506-0800 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server.
+2018-04-19T14:49:54.507-0800 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP
+2018-04-19T14:49:54.511-0800 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-04-19T14:49:54.512-0800 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-04-19T14:49:54.515-0800 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-04-19T14:49:54.516-0800 I CONTROL  [initandlisten]
+2018-04-19T14:49:54.517-0800 I CONTROL  [initandlisten]
+2018-04-19T14:49:54.518-0800 I CONTROL  [initandlisten] ** WARNING: The file system cache of this machine is configured to be greater than 40% of the total memory. This can lead to increased memory pressure and poor performance.
+2018-04-19T14:49:54.522-0800 I CONTROL  [initandlisten] See http://dochub.mongodb.org/core/wt-windows-system-file-cache
+2018-04-19T14:49:54.522-0800 I CONTROL  [initandlisten]
+2018-04-20T10:49:55.289+1200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'D:/backup/personalfiles/Development/AtomProject/MongoDBFile/NodeBBDev/diagnostic.data'
+2018-04-20T10:49:55.294+1200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-04-20T10:49:56.367+1200 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+
+
+And then I connect with MongoDB
+
+```
+& 'C:\Program Files\MongoDB\Server\3.6\bin\mongo.e
+xe'
+```
+
+Repeat the process from section 2 of Configure MongoDB, remember to change routes to your mongodb file and database, database config location.
+
+And Remember a administrator account has been created when you install NodeBB, I set it the same with online NodeBB for simple
+
+
+7. Upgrade NodeBB locally
+Shut down your forum. Then backup your database
+command I use to backup database, you need to keep the database running
+>./mongodump /u leon /p Duan1984
+
+After executed, backup file will be stored in the bin folder
+>>>>>>> 4cb29e0282071f82581658d588c229d575f21b13

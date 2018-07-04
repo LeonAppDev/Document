@@ -32,10 +32,19 @@
           esc_html__() is a function wordpress use to make translate easier and more efficient, it accepts a default string which will output when no translatation found and a domain in which you could create a translation for all words print with esc_html__()
       10. How to add a custom data tab and panel and add the data to the sysyem
            [Add custome data tab in WooCommerce product](https://www.proy.info/woocommerce-admin-custom-product-data-tab/)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4cb29e0282071f82581658d588c229d575f21b13
       11. Customize order detail pages in admin area
            https://rudrastyh.com/woocommerce/customize-order-details.html
            https://rudrastyh.com/woocommerce/checkout-fields.html
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ff8c4ca1fbb5c8cf1266f4a40133c9ecb229e603
+>>>>>>> 4cb29e0282071f82581658d588c229d575f21b13
 ## Add optional data to product
 
 For Now I plan to add a optional data to product page, need to allow customer add customer data on the background and rearrange layout on he front end
