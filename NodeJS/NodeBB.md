@@ -84,7 +84,7 @@ sudo mongodump -u username -p password
     There are several important things need to be taken into consideration. First data must be back up, second upgrade may need certain node.js version support and third upgrade may cause old plugin work improperly and fourth is upgrade may break customized function, so we need to think about how to do it before we do any update.
 
 11. Build a NodeBB local development platform
-    
+
 100. Useful link
   [Install NodeBB on ubuntu](https://docs.nodebb.org/installing/os/ubuntu/)
   [Insatll NodeBB on centos](https://github.com/NodeBB-China/NodeBB-China/blob/master/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/CentOS%2BNodeBB%2BMongoDB.mdnode)
