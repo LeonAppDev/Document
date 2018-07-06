@@ -120,11 +120,7 @@ function testNull()
 }
 
 
-<<<<<<< HEAD
-(function()
-{
 
-=======
 function execSeq(val1)
 {
 
@@ -209,9 +205,7 @@ s.repeat(13);*/
 //regIgnoreCase();
 
 //objectTest();
-<<<<<<< HEAD
-testNull();
-=======
+
 //testNull();
 
 //ecSeq("I am val1")("I am val2");
@@ -223,5 +217,4 @@ var a = assignFunctionTest();
 
 console.log(a===this);
 
->>>>>>> 4cb29e0282071f82581658d588c229d575f21b13
 })()
