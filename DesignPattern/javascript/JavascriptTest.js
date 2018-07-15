@@ -178,9 +178,10 @@ var assignFunctionTest = function()
 //var assignFunctionTest = assignFunctionTest;
 
 
+
+
 (function()
 {
->>>>>>> 4cb29e0282071f82581658d588c229d575f21b13
 
 //regTest();
 /*var g = generatorTest();
@@ -216,5 +217,4 @@ s.repeat(13);*/
 var a = assignFunctionTest();
 
 console.log(a===this);
-
 })()
