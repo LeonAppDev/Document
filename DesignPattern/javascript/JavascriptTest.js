@@ -180,7 +180,7 @@ var assignFunctionTest = function()
 //var assignFunctionTest = assignFunctionTest;
 
 // A test process for node js event loop
-const fs = require('fs');
+/*const fs = require('fs');
 
 function asyncOperation(callback){
     
@@ -207,7 +207,7 @@ asyncOperation(()=>{
      while(Date.now()-callBackStartTime<10)
      {}
 });
-
+*/
 function loopEventTest(){
 
   setTimeout(()=>{
@@ -260,6 +260,40 @@ fs.readFile(__dirname+'/The Waikato Artisan Foodie Tour.docx',()=>{
   
 }
 
+let prototypeTest = function (){
+      
+
+        let Foo = function(name)
+        {
+          this.name=name;
+
+          this.printName = ()=>{
+
+            console.log(this.name);
+          };
+
+
+        };
+
+        /*Foo.prototype.printName = ()=> {
+           
+           console.log(name);
+        };
+*/
+        let foo1 = new Foo('Leon');
+        let foo2 = new Foo('Bill');
+         
+
+      
+
+        let printName1 = foo1.printName;
+        printName1(); 
+        foo2.printName();
+        console.log(foo1 === foo2);
+        console.log(foo1.__proto__ === foo2.__proto__);
+
+};
+
 
 (function()
 {
@@ -300,5 +334,7 @@ s.repeat(13);*/
 console.log(a===this);
 */
 
-loopEventTest();
+//loopEventTest();
+
+prototypeTest();
 })()
