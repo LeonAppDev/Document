@@ -1,3 +1,5 @@
+'use strict'
+
 var regTest = ()=>
 {
   var reg = RegExp('ab.|[ab].','g');
@@ -133,7 +135,7 @@ function execSeq(val1)
 function thisTest()
 {
 
-  var arguments = [1,2,3];
+ /* var arguments = [1,2,3];
   var arr = ()=>arguments[0];
 
   console.log(arr());
@@ -146,7 +148,7 @@ function thisTest()
         return f(41);
 
   }
-
+*/
   console.log(foo(2));
 
   function foo2(n)
@@ -177,7 +179,86 @@ var assignFunctionTest = function()
 //
 //var assignFunctionTest = assignFunctionTest;
 
+// A test process for node js event loop
+const fs = require('fs');
 
+function asyncOperation(callback){
+    
+  fs.readFile(__dirname+'/The Waikato Artisan Foodie Tour.docx',callback);
+}
+
+let timeoutScheculed = Date.now();
+//let fileReadTime = 0;
+
+setTimeout(function() {
+      
+       let delay = Date.now()-timeoutScheculed;
+       console.log("It takes "+delay);
+
+},100);
+
+
+asyncOperation(()=>{
+                   
+     let callBackStartTime = Date.now();
+     let fileReadTime = callBackStartTime-timeoutScheculed;
+     console.log("Read file takes "+fileReadTime);
+    
+     while(Date.now()-callBackStartTime<10)
+     {}
+});
+
+function loopEventTest(){
+
+  setTimeout(()=>{
+    console.log("setTimeOut1");
+  },0);
+
+  setImmediate(()=>{
+      console.log("setImmediate1");
+  }
+);
+
+const fs = require("fs");
+
+fs.readFile(__dirname+'/The Waikato Artisan Foodie Tour.docx',()=>{
+        
+        setTimeout(()=>{
+           console.log("setTimeout2");
+        },0);
+
+        setImmediate(()=>{
+            console.log("setImmediate2");
+        });
+        
+
+});
+
+
+ Promise.resolve().then(()=>{
+          console.log('resolve1');
+     }
+ );
+
+ process.nextTick(()=>{
+  console.log('tick1');
+
+  process.nextTick(()=>{
+    console.log('tick2');
+  });
+ }
+  );
+
+ Promise.resolve().then(()=>{
+  console.log('resolve2');
+ });
+
+ process.nextTick(()=>{
+
+  console.log('tick3');
+ });
+  
+}
 
 
 (function()
@@ -214,7 +295,10 @@ s.repeat(13);*/
 //isTest();
 //var a = assignFunctionTest();
 //console.log(a===this);
-var a = assignFunctionTest();
+/*var a = assignFunctionTest();
 
 console.log(a===this);
+*/
+
+loopEventTest();
 })()
