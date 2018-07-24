@@ -304,8 +304,8 @@ function promiseEmulate(){
       let p = new PromiseTest(function(resolve){
 
                 console.log('execute promise');
-               // setTimeout(function(){resolve(31231);},1000);
-               resolve(31231);
+                setTimeout(function(){resolve(31231);},1000);
+               //resolve(31231);
 
       });
 
@@ -314,23 +314,63 @@ function promiseEmulate(){
       {
             
               let callbacks = [];
+
+            
               
               this.then = function (callback){
                      
+                            
                      if(typeof callback==='function')
                       {
                         callbacks.push(callback);
+                        
                       }
-                      console.log('then');
-                      return this;
+                       console.log('then');
+                       
+                       return this;
+                       //Here you should return this or a new promise which has a new async call
+                      
               };
 
               function resolve(value)
-              {
-                   setTimeout(function(){callbacks.forEach(function(callback){callback(value)});},0);
+              {    
+                   
+                   
+                   setTimeout(function(){
+                    
+                     //callbacks.forEach(function(callback){callback(value)});
+                     let isBreak = false;
+                     let func;
+                     let rt;
+                     for(let i=0;i<callbacks.length;i++)
+                     {
+                              func = callbacks[i];
+                              //func(value);
+                              rt = func(value);
+                            
+                              if(typeof rt ==='object'&&PromiseTest.prototype.isPrototypeOf(rt))
+                              {
+                                 console.log('Add another Promise');
+                                for(let j=i+1;j<callbacks.length;++j)
+                                {
+                                  let leftcall = callbacks[j];
+                                  rt.then(leftcall);
+                                }
+                                isBreak = true;
+
+                              }
+
+                              if(isBreak)
+                              {
+                                break;
+                              }
+
+                     }
+                   },0);
+                  
 
                    console.log('resolve');
-              } 
+              }
               
 
               fn(resolve); 
@@ -338,7 +378,7 @@ function promiseEmulate(){
       }
 
 
-      p.then(function(id1){console.log('then1'+id1);}).then(function(id2){console.log('then2'+id2)}).then(function(id3){console.log('then3'+id3)});         
+      p.then(function(id1){console.log('then1'+id1);}).then(function(idp){return new PromiseTest(function(resolve){setTimeout(function(){resolve(idp+3);},3000);});}).then(function(id2){console.log('then2'+id2)}).then(function(id3){console.log('then3'+id3)});         
 
 }
 
