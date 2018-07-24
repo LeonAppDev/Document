@@ -283,17 +283,64 @@ let prototypeTest = function (){
         let foo1 = new Foo('Leon');
         let foo2 = new Foo('Bill');
          
+        foo1.say = function(){
+          console.log('My name is '+this.name);
+        };
 
       
-
+      
         let printName1 = foo1.printName;
         printName1(); 
+        foo1.say();
         foo2.printName();
         console.log(foo1 === foo2);
         console.log(foo1.__proto__ === foo2.__proto__);
 
 };
 
+
+function promiseEmulate(){
+
+      let p = new PromiseTest(function(resolve){
+
+                console.log('execute promise');
+               // setTimeout(function(){resolve(31231);},1000);
+               resolve(31231);
+
+      });
+
+
+      function PromiseTest(fn)
+      {
+            
+              let callbacks = [];
+              
+              this.then = function (callback){
+                     
+                     if(typeof callback==='function')
+                      {
+                        callbacks.push(callback);
+                      }
+                      console.log('then');
+                      return this;
+              };
+
+              function resolve(value)
+              {
+                   setTimeout(function(){callbacks.forEach(function(callback){callback(value)});},0);
+
+                   console.log('resolve');
+              } 
+              
+
+              fn(resolve); 
+
+      }
+
+
+      p.then(function(id1){console.log('then1'+id1);}).then(function(id2){console.log('then2'+id2)}).then(function(id3){console.log('then3'+id3)});         
+
+}
 
 (function()
 {
@@ -336,5 +383,7 @@ console.log(a===this);
 
 //loopEventTest();
 
-prototypeTest();
+//prototypeTest();
+
+promiseEmulate();
 })()

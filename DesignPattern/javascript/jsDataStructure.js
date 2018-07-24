@@ -17,11 +17,6 @@ sort.bubleSort = (initialArray)=>{
                    // New de-structuring feature in ES6
                    [sortedArray[i],sortedArray[i+1]]=[sortedArray[i+1],sortedArray[i]];
 
-                   /*let temp;
-                   temp = sortedArray[i+1];
-                   sortedArray[i+1] = sortedArray[i];
-                   sortedArray[i] = temp;*/
-
                    isSwap = true;
                 }      
              }
