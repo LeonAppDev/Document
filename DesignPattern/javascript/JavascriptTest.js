@@ -356,6 +356,7 @@ function promiseEmulate(){
                                   let leftcall = callbacks[j];
                                   rt.then(leftcall);
                                 }
+                                
                                 isBreak = true;
 
                               }
@@ -378,7 +379,7 @@ function promiseEmulate(){
       }
 
 
-      p.then(function(id1){console.log('then1'+id1);}).then(function(idp){return new PromiseTest(function(resolve){setTimeout(function(){resolve(idp+3);},3000);});}).then(function(id2){console.log('then2'+id2)}).then(function(id3){console.log('then3'+id3)});         
+      p.then(function(id1){console.log('then1'+id1);}).then(function(idp){return new PromiseTest(function(resolve){setTimeout(function(){resolve(idp+3);},3000);});}).then(function(id2){console.log('then2'+id2)}).then(function(id3){console.log('then3'+id3)}).then();         
 
 }
 
