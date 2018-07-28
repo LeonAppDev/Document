@@ -383,6 +383,98 @@ function promiseEmulate(){
 
 }
 
+function promiseEmulateVersion2()
+{
+ 
+    let p = new PromiseTest(function(resolve) {
+
+                        setTimeout(function(){resolve('test')},2000);
+                     //resolve(111111);
+    });
+
+
+    function PromiseTest(fn){
+                
+                let status = 'pending';
+                let callbacks = [];
+                let value = null;
+
+
+               this.then = function (fulfilled){
+
+                 return new PromiseTest(function (resolve){
+                    handle({
+                      fulfilled: fulfilled||null,
+                      resolve: resolve
+                     });
+                  });
+               };
+                
+           
+               function handle(cb){
+                      
+                      if(status ==='pending')
+                      {
+                        callbacks.push(cb);
+                        return;
+                      }
+
+                      if(!cb.fulfilled)
+                      { 
+                        cb.resolve(value);
+                        return;
+                      }
+
+                     
+                      let ret = cb.fulfilled(value);
+                      if(ret)
+                      cb.resolve(ret);
+                      else
+                      cb.resolve(value);
+                    
+               }
+
+
+               
+               function resolve(newValue)
+              {
+                     
+                        if(newValue && (typeof newValue==='function'||typeof newValue === 'object'))
+                        {      
+                               let then = newValue.then;
+
+                              if(typeof then ==="function")
+                              {
+                                 
+                                 then.call(newValue,resolve); 
+                                  return;
+                              } 
+                             
+                        }
+                         
+                         // Use to test how many times resolve execures in the chain
+                        // console.log('execute resolve');
+
+                        
+                          status = 'fullfilled';
+                          value = newValue;
+                        
+                         setTimeout(function (){callbacks.forEach(function(callback){handle(callback);})},0);
+                         
+
+                      
+               }
+
+              fn(resolve);
+
+    }
+
+   
+
+     p.then(function(id1){console.log('then1'+id1);}).then(function(idp){return new PromiseTest(function(resolve){setTimeout(function(){resolve(idp);},3000);});}).then(function(id2){return 'test2'}).then(function(id3){console.log('then3'+id3)}); 
+
+}
+
 (function()
 {
 
@@ -426,5 +518,6 @@ console.log(a===this);
 
 //prototypeTest();
 
-promiseEmulate();
+//promiseEmulate();
+promiseEmulateVersion2();
 })()
