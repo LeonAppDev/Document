@@ -1,0 +1,2 @@
+# Talk about javascript prototype
+

@@ -388,8 +388,8 @@ function promiseEmulateVersion2()
  
     let p = new PromiseTest(function(resolve) {
 
-                        setTimeout(function(){resolve('test')},2000);
-                     //resolve(111111);
+                        //setTimeout(function(){resolve('test')},2000);
+                     resolve(111111);
     });
 
 
@@ -471,7 +471,59 @@ function promiseEmulateVersion2()
 
    
 
-     p.then(function(id1){console.log('then1'+id1);}).then(function(idp){return new PromiseTest(function(resolve){setTimeout(function(){resolve(idp);},3000);});}).then(function(id2){return 'test2'}).then(function(id3){console.log('then3'+id3)}); 
+    // p.then(function(id1){console.log('then1'+id1);}).then(function(idp){return new PromiseTest(function(resolve){setTimeout(function(){resolve(idp);},3000);});}).then(function(id2){return 'test2'}).then(function(id3){console.log('then3'+id3)}); 
+    
+    p.then().then(function (id) {return new PromiseTest((resolve)=>{resolve(22222)});}).then(id2=>{console.log(id2)});
+
+}
+
+function promiseTest()
+{
+  new Promise(resolve=>resolve(8))
+  .then(function(id) {return id;})
+  .catch(null)
+  .then(Promise.resolve(9))
+  .then(res=> console.log(res))
+// 8
+}
+
+
+function propertyTest()
+{
+
+      let func1 = function(){
+        //this.name = "test1";
+        console.log('test1');
+      };
+      
+      let funcInstance = new func1();
+      
+      
+     
+      let func2 = function(){
+        //this.name = "test2";
+        console.log('test2');
+      };
+      
+       func1.prototype.constructor = func2.constructor;
+       func1.prototype = func2.prototype;
+
+       func2.prototype.name = 'test2';
+     //func1 = func2;
+      
+      let funcInstance2 = new func1();
+
+     
+
+      console.log(func1.prototype.name);
+      console.log(funcInstance.name);
+      console.log(funcInstance2.name);
+     
+      console.log(func1.prototype.constructor);
+      
+      console.log("Function.__proto__=== Function.prototype is ", Function.__proto__ === Function.prototype);
+
+
 
 }
 
@@ -519,5 +571,8 @@ console.log(a===this);
 //prototypeTest();
 
 //promiseEmulate();
-promiseEmulateVersion2();
+//promiseEmulateVersion2();
+
+// promiseTest();
+propertyTest();
 })()
