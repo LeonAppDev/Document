@@ -523,8 +523,35 @@ function propertyTest()
       
       console.log("Function.__proto__=== Function.prototype is ", Function.__proto__ === Function.prototype);
 
+}
 
+function pluginTest () {
 
+    let Plugin = require('./PluginTest');
+
+    let pluginObject = new Plugin();
+    let plugin1 = { name:'plugin1', version:'0.01', register: () => {
+
+        console.log('This is the plugin1');
+}
+};
+
+    let plugin2 = { name:'plugin2', version:'0.01', register: () => {
+
+        console.log('This is the plugin2');
+}, view: () => {
+        console.log('view');
+}
+};
+    let plugins = [plugin1,plugin2];
+
+ //   pluginObject.register(plugins);
+
+    pluginObject.execute('plugin1');
+
+   // pluginObject.view();
+    let keys = Object.keys(pluginObject);
+    console.log(keys);
 }
 
 (function()
@@ -574,5 +601,7 @@ console.log(a===this);
 //promiseEmulateVersion2();
 
 // promiseTest();
-propertyTest();
+// propertyTest();
+
+pluginTest();
 })()
