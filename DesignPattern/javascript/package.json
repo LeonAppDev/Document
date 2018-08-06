@@ -1,27 +1,26 @@
 {
-  "name": "js-design",
+  "name": "designpattern",
   "version": "1.0.0",
-  "description": "design patern project",
-  "main": "DesignPattern.js",
-  "repository": "",
+  "description": "Use to control pkg in Design Pattern folder",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonAppDev/Document.git"
+  },
+  "keywords": [
+    "javacript"
+  ],
   "author": "Leon",
-  "license": "MIT",
-  "ava": {
-    "require": [
-      "babel-register",
-      "babel-polyfill",
-      "isomorphic-fetch",
-      "./config/ava_setup.js"
-    ],
-    "babel": {
-      "babelrc": true
-    }
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonAppDev/Document/issues"
   },
+  "homepage": "https://github.com/LeonAppDev/Document#readme",
   "devDependencies": {
-    "ava":
-
-  },
-  "dependencies": {
-
+    "eslint": "^5.3.0",
+    "eslint-config-google": "^0.9.1"
   }
 }

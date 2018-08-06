@@ -1,2 +1,5 @@
 /DesignPattern/javascript/*.png
 /DesignPattern/javascript/*.docx
+/DesignPattern/javascript/node_modules/
+/DesignPattern/javascript/package-lock.json
+/DesignPattern/javascript/package.json_back

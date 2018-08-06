@@ -525,9 +525,66 @@ function propertyTest()
 
 }
 
+
+let Plugin = function PluginTest () {
+
+this.pluginTable = [];
+
+this.register = function (plugins) {
+
+    let pluginTable = this.pluginTable;
+    plugins.forEach(function (plugin) {
+
+        if(plugin)
+        {
+           pluginTable.push(plugin);
+}
+})
+
+    this.addFuncFromPlugin();
+}.bind(this);
+
+this.execute = function (pluginName) {
+
+    this.pluginTable.forEach(function (plugin) {
+
+        if(plugin.hasOwnProperty('name'))
+        {
+            if(plugin.name === pluginName)
+            {
+                 plugin.register.call(this);
+}
+}
+})
+}.bind(this);
+
+this.addFuncFromPlugin = () => {
+
+     let self = this;
+    
+     this.pluginTable.forEach(function (plugin) {
+
+        let keys = Object.keys(plugin);
+
+        for (let i=0; i<keys.length; ++i)
+        {   let key = keys[i];
+           
+            if (plugin[key] instanceof Function && key !== 'register')
+            {   
+                  self[key] = plugin[key];
+                
+
+}
+}
+});
+    
+}
+};
+
+
 function pluginTest () {
 
-    let Plugin = require('./PluginTest');
+    //let Plugin = require('./PluginTest');
 
     let pluginObject = new Plugin();
     let plugin1 = { name:'plugin1', version:'0.01', register: () => {
@@ -545,13 +602,27 @@ function pluginTest () {
 };
     let plugins = [plugin1,plugin2];
 
- //   pluginObject.register(plugins);
+    pluginObject.register(plugins);
 
-    pluginObject.execute('plugin1');
+   // pluginObject.execute('plugin1');
 
-   // pluginObject.view();
+    pluginObject.view();
     let keys = Object.keys(pluginObject);
     console.log(keys);
+    
+}
+
+function addProperty(obj1,obj2)
+{
+
+    let keys = Object.keys(obj2);
+     
+    for(let i=0; i<keys.length; i++)
+    { 
+      let key = keys[i];
+      obj1[key] = obj2[key];
+    }
+
 }
 
 (function()
@@ -604,4 +675,15 @@ console.log(a===this);
 // propertyTest();
 
 pluginTest();
+
+/*
+let o1 = { p1:'Test1', p2:'Test2'};
+let o2 = { p3: 'Test3'};
+
+let keys = Object.keys(o1);
+console.log(keys);
+addProperty(o1,o2);
+
+keys = Object.keys(o1);
+console.log(keys);*/
 })()

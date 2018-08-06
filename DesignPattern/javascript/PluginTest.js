@@ -35,19 +35,23 @@ this.execute = function (pluginName) {
 this.addFuncFromPlugin = () => {
 
      let self = this;
+    
      this.pluginTable.forEach(function (plugin) {
 
         let keys = Object.keys(plugin);
 
         for (let i=0; i<keys.length; ++i)
         {   let key = keys[i];
+           
             if (plugin[key] instanceof Function && key !== 'register')
-            {
-                self[key] = plugin[key];
+            {   
+                  self[key] = plugin[key];
+                
 
 }
 }
-})
+});
+    
 }
 };
 
