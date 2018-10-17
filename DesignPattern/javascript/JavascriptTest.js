@@ -483,7 +483,7 @@ function promiseTest () {
 
 function propertyTest () {
 
-    const func1 = function () {
+   /* const func1 = function () {
         // this.name = "test1";
         console.log('test1');
     };
@@ -512,8 +512,34 @@ function propertyTest () {
     console.log(func1.prototype.constructor);
 
     console.log('Function.__proto__=== Function.prototype is ', Function.__proto__ === Function.prototype);
+*/
+    let obj = {
+        this:"test"
+    };
 
+    console.log(obj.__proto__);
+    console.log(Object.keys);
+
+    let obj2 = new Object();
+
+    console.log(obj2.__proto__);
+
+    console.log(Object.__proto__); 
+
+    function func1 ()
+    {return 'string';}
+
+    console.log(func1.name);
+    
+    console.log(func1.__proto__);
+
+    let func1Ins = new func1();
+
+    console.log(func1Ins.name);
+
+    console.log(func1().charAt());
 }
+
 
 
 const Plugin = function PluginTest () {
@@ -568,6 +594,66 @@ const Plugin = function PluginTest () {
 };
 
 
+function chainPromiseTest(){
+
+    //const ChainPromise = (fn) => {
+      function ChainPromise (fn) {
+        let chain = [];
+        
+        this.then = (resolve) => {
+
+            let node = createNode(resolve);
+         //   node(function(){return "test";});
+            chain.push(node);
+
+            return this;
+        }
+
+        let createNode=(resolve) => (func) => {
+
+            try{
+                let value = func();
+                if (value)
+                {
+                    return resolve(value);
+                }              
+            }
+            catch(err)
+            {
+               // return reject(err);
+            }
+        };
+
+      //  let compose = (...funcs) => {
+        function compose (...funcs) {
+           
+            if(funcs.length==0)
+            {
+                return (arg) => {arg};
+            }
+            else
+            {
+                let firstFunc = funcs[0];
+
+                console.log(typeof firstFunc);
+                let restFunc = funcs.slice(1);
+                 
+                 console.log(restFunc);
+                 return (f) => restFunc.reduce((composed, f) => { f(composed); },firstFunc(f));
+                //return (arg) => {arg};
+            }
+        }
+
+        setTimeout(function() {compose(...chain)(fn);},0);
+
+    };
+
+     let p = new ChainPromise(() => {setTimeout(() => {},2000); return "Test Leon";});
+
+      p.then(function(value) { console.log(value+"then");return "then1";}).then(function (value) {console.log(value+"then2")});
+}
+
+
 function pluginTest () {
 
     // let Plugin = require('./PluginTest');
@@ -596,6 +682,7 @@ function pluginTest () {
     const keys = Object.keys(pluginObject);
     console.log(keys);
 
+
 }
 
 function addProperty (obj1, obj2) {
@@ -608,6 +695,8 @@ function addProperty (obj1, obj2) {
     }
 
 }
+
+
 
 (function () {
 
@@ -655,9 +744,11 @@ console.log(a===this);
 // promiseEmulateVersion2();
 
 // promiseTest();
-// propertyTest();
+ propertyTest();
 
-    pluginTest();
+// pluginTest();
+
+//chainPromiseTest()
 
 /*
 let o1 = { p1:'Test1', p2:'Test2'};

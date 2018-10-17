@@ -312,3 +312,5 @@ command I use to backup database, you need to keep the database running
 
 After executed, backup file will be stored in the bin folder
 >>>>>>> 4cb29e0282071f82581658d588c229d575f21b13
+
+8. Please make sure execute above command with powershell, other command line tool may not recognize those commands

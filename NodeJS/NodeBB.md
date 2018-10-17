@@ -96,7 +96,7 @@ sudo mongodump -u username -p password
   [Wecenter](http://www.wecenter.com/)
 
 101. Issues
-   * Looks like your connection to NodeBB was Lost, this means your URL part in config.js should be changed
+   * Looks like your connection to NodeBB was Lost, this means your URL part in config.json should be changed
 102. Useful quotes
      from [qingyunzhi](https://xuanwo.org/2016/07/08/nodebb-upgrade/)
      **应用部署的灵活性
