@@ -7,3 +7,13 @@ sudo chsh -s /bin/bash <username>
 (you will need to log out and back in for the change to take effect). You may also need to copy the default .bashrc from /etc/skel to get the color prompt.
 
 In future you might want to use the 'adduser' command instead of 'useradd' - it sets up a more complete user environment including things like a default .profile and .bashrc - as well as setting the login shell to 'bash'
+
+## Useful command
+
+### CentOS
+1. Network
+sudo netstat -plnt : show all listening port
+sudo netstat -plnt | grep ':80' : to filter out everything except the web server port
+
+cat /etc/services : list all network service
+cat /etc/services | less : list all network service and wait

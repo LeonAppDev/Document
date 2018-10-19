@@ -201,3 +201,42 @@ Now I try to build a development, staging and production environment for my proj
 3 There are will be different database and cofiguration file 
 4 CI could work with this project, triggered automatically and send report to project manager
 5 Once Certain stage come, we could estimate whether we are confident enought from CI's report
+
+
+## Dockering a node.js platform
+1. Could write different scripts for development, staging and production in package.json and run different command in Dockerfile
+
+2. Remember to add a .dockignore file to exclude node_modules and npm-debug.log when copy files into image
+
+3. Use "docker build -t node-web-app ." command in the Dockerfile folder to create the docker image 
+
+4. When creating the container, use below command
+   
+   docker run -p 8080:3000(8080 is the port in localhost, we could access docker from this port and 3000 is the port in docker) -d node-web-app
+   
+   in windows, we could set host name as 'host.docker.internal' in container so the app in container could access host service
+  
+   In linux, we have to use docker run --net=host -d node-web-app
+
+5. Process when images failed to start
+
+use below command to open docker's events log
+```
+docker events&
+
+```
+
+then docket run .. your image and then you should see something like the following in the screening
+
+```
+2015-12-22T15:13:05.503402713+02:00 xxxxxxxacd8ca86df9eac5fd5466884c0b42a06293ccff0b5101b5987f5da07d: (from xxx/xxx:latest) die
+
+```
+Then you can get the starup hex id from previous message then we could use it wiht the logs command
+
+```
+docker logs <copy the instance id from docker events messages on screen>
+```
+You should now see some output from the failed image startup.
+
+As @alexkb suggested in a comment: docker events& can be troublesome if your container is being constantly restarted from something like AWS ECS service. In this scenario it may be easier to get the container hex id out of the logs in /var/log/ecs/ecs-agent.log.<DATE>. Then use docker logs <hex id>.
